@@ -68,7 +68,7 @@ PM signal
 Demodulated signal
 
 PROCEDURE
-```
+\
 Refer to the algorithm and write the SCILAB code.
 Open SCILAB software.
 Create a new script file.
@@ -78,6 +78,7 @@ Debug errors if any and re-run.
 Observe the generated waveforms.
 
 PROGRAM
+```
 clc;
 clear;
 close;
