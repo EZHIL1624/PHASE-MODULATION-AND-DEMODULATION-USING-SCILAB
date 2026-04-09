@@ -68,7 +68,7 @@ PM signal
 Demodulated signal
 
 PROCEDURE
-
+```
 Refer to the algorithm and write the SCILAB code.
 Open SCILAB software.
 Create a new script file.
@@ -77,10 +77,54 @@ Execute the code.
 Debug errors if any and re-run.
 Observe the generated waveforms.
 
-MODEL GRAPHS
+PROGRAM
+clc;
+clear;
+close;
+
+Ac = 7.4;          // Carrier amplitude
+Am = 3.7;        // Message amplitude
+Fc = 1660;        // Carrier frequency
+Fm = 166;         // Message frequency
+Fs = 16600;       // Sampling frequency
+kp = %pi/4;       // Phase sensitivity constant
+
+t = 0:1/Fs:2/Fm;  // Time vector (two cycles of message)
+
+// Message signal
+E1 = Am * sin(2*%pi*Fm*t);
+subplot(3,1,1);
+plot(t, E1);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Message Signal");
+
+// Carrier signal
+E2 = Ac * sin(2*%pi*Fc*t);
+subplot(3,1,2);
+plot(t, E2);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Carrier Signal");
+
+// Phase Modulated signal
+E3 = Ac * sin(2*%pi*Fc*t + kp*E1);
+subplot(3,1,3);
+plot(t, E3);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Phase Modulated Signal");
+
+xgrid();
+```
+GRAPHS
+<img width="1553" height="1002" alt="image" src="https://github.com/user-attachments/assets/6579ab81-85a4-4564-8a50-12f130752ef3" />
 
 TABULATIONS
+<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/a18e054f-20a0-4b21-b5a0-e82ab9358cb5" />
 
-CALCULATIONS
+
 
 RESULT
+<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/a8198f3f-e4c6-4cab-b689-c480b6d57c6b" />
+
